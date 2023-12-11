@@ -1,14 +1,15 @@
-import React from 'react';
+'use client';
+import React, { FC, useState } from 'react';
 
-import { Header } from './Header';
-import './page.css';
+import { Header } from '../organizms/header/Header';
+import './story-page.scss';
 
 type User = {
   name: string;
 };
 
-export const Page: React.FC = () => {
-  const [user, setUser] = React.useState<User>();
+export const StoryPage: FC = () => {
+  const [user, setUser] = useState<User>();
 
   return (
     <article>

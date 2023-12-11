@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import './button.css';
+import './button.scss';
 
 interface ButtonProps {
   /**
