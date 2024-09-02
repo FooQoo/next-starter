@@ -11,6 +11,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@nextui-org/react": "^2.4.6",
     "@storybook/nextjs": "^7.6.4",
     "framer-motion": "^11.3.31",
@@ -18,7 +21,8 @@
     "react": "^18",
     "react-dom": "^18",
     "recoil": "^0.7.7",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "twemoji": "^14.0.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.4",
@@ -31,6 +35,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-twemoji": "^0.4.3",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
