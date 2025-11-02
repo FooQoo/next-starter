@@ -17,7 +17,7 @@
     "@nextui-org/react": "^2.4.6",
     "@storybook/nextjs": "^7.6.4",
     "framer-motion": "^12.0.0",
-    "next": "14.2.33",
+    "next": "16.0.1",
     "react": "^18",
     "react-dom": "^18",
     "recoil": "^0.7.7",
