@@ -6,7 +6,10 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "stylelint.validate": ["css", "scss"],
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
   "scss.validate": false,
   "css.validate": false,
   "tailwindCSS.emmetCompletions": true,
