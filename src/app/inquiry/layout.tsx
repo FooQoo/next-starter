@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -13,16 +13,10 @@ import {
   LanguageSelectorButton,
   LanguageSelectorMenu,
   LanguageSelectorMenuItem,
-  LanguageSelectorGlobeWithLabelIcon,
   UtilityLink,
-  NotificationBanner,
-  NotificationBannerBody,
-  NotificationBannerClose,
-  EmergencyBanner,
-  EmergencyBannerHeading,
-  EmergencyBannerBody,
-  EmergencyBannerButton,
 } from '@/components/atoms/digital-go-jp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { ScrollToTopButton } from '@/components/atoms/digital-go-jp/v1/ScrollToTopButton';
 
 interface LayoutProps {
@@ -32,9 +26,29 @@ interface LayoutProps {
 export default function InquiryLayout({ children }: LayoutProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isNotificationVisible, setIsNotificationVisible] = useState(true);
-  const [isEmergencyVisible, setIsEmergencyVisible] = useState(true);
   const [currentLanguage, setCurrentLanguage] = useState('ja');
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const languageSelectorRef = useRef<HTMLDivElement>(null);
+
+  // メニュー外クリック時の閉じる処理
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageSelectorRef.current &&
+        !languageSelectorRef.current.contains(event.target as Node)
+      ) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    if (isLanguageMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLanguageMenuOpen]);
 
   // パスからパンくずリストを生成
   const getBreadcrumbs = () => {
@@ -77,45 +91,6 @@ export default function InquiryLayout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-solid-gray-50">
-      {/* 緊急バナー */}
-      {isEmergencyVisible && (
-        <div className="bg-red-50 border-b border-red-200">
-          <EmergencyBanner>
-            <EmergencyBannerHeading level="h2">
-              【重要】システムメンテナンスのお知らせ
-            </EmergencyBannerHeading>
-            <EmergencyBannerBody>
-              1月15日（月）0:00〜6:00の間、システムメンテナンスを実施します。この時間帯はサービスをご利用いただけません。
-            </EmergencyBannerBody>
-            <EmergencyBannerButton onClick={() => setIsEmergencyVisible(false)}>
-              閉じる
-            </EmergencyBannerButton>
-          </EmergencyBanner>
-        </div>
-      )}
-
-      {/* 通知バナー */}
-      {isNotificationVisible && (
-        <div className="bg-blue-50 border-b border-blue-200">
-          <NotificationBanner
-            bannerStyle="standard"
-            type="info1"
-            title="新機能のお知らせ"
-          >
-            <NotificationBannerBody>
-              新機能：写真コンテンツに一括登録機能が追加されました。詳しくは
-              <Link href="/inquiry/help" className="underline">
-                ヘルプページ
-              </Link>
-              をご覧ください。
-            </NotificationBannerBody>
-            <NotificationBannerClose
-              onClick={() => setIsNotificationVisible(false)}
-            />
-          </NotificationBanner>
-        </div>
-      )}
-
       {/* ヘッダー */}
       <header className="bg-white border-b border-solid-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,28 +128,36 @@ export default function InquiryLayout({ children }: LayoutProps) {
 
             {/* ユーティリティリンク */}
             <div className="flex items-center space-x-4">
-              <LanguageSelector>
+              <LanguageSelector ref={languageSelectorRef}>
                 <LanguageSelectorButton
                   aria-label="言語を選択"
-                  className="flex items-center space-x-2"
+                  aria-expanded={isLanguageMenuOpen}
+                  onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                  className="flex items-center gap-1.5 pr-2"
                 >
-                  <LanguageSelectorGlobeWithLabelIcon />
-                  <span className="text-sm">
-                    {currentLanguage === 'ja' ? '日本語' : 'English'}
-                  </span>
+                  <FontAwesomeIcon icon={faGlobe} className="w-4 h-4" />
+                  <span className="text-sm">Language</span>
                 </LanguageSelectorButton>
-                <LanguageSelectorMenu>
-                  <LanguageSelectorMenuItem
-                    onClick={() => setCurrentLanguage('ja')}
-                  >
-                    {currentLanguage === 'ja' ? '✓ ' : ''}日本語
-                  </LanguageSelectorMenuItem>
-                  <LanguageSelectorMenuItem
-                    onClick={() => setCurrentLanguage('en')}
-                  >
-                    {currentLanguage === 'en' ? '✓ ' : ''}English
-                  </LanguageSelectorMenuItem>
-                </LanguageSelectorMenu>
+                {isLanguageMenuOpen && (
+                  <LanguageSelectorMenu className="absolute top-full right-0 mt-1 z-50">
+                    <LanguageSelectorMenuItem
+                      onClick={() => {
+                        setCurrentLanguage('ja');
+                        setIsLanguageMenuOpen(false);
+                      }}
+                    >
+                      {currentLanguage === 'ja' ? '✓ ' : ''}日本語
+                    </LanguageSelectorMenuItem>
+                    <LanguageSelectorMenuItem
+                      onClick={() => {
+                        setCurrentLanguage('en');
+                        setIsLanguageMenuOpen(false);
+                      }}
+                    >
+                      {currentLanguage === 'en' ? '✓ ' : ''}English
+                    </LanguageSelectorMenuItem>
+                  </LanguageSelectorMenu>
+                )}
               </LanguageSelector>
               <UtilityLink href="/" className="hidden sm:block">
                 ログアウト

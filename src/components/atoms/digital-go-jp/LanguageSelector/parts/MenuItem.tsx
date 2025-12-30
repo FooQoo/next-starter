@@ -27,16 +27,6 @@ export const LanguageSelectorMenuItem = forwardRef<
         ref={ref}
         {...rest}
       >
-        <svg
-          aria-hidden={true}
-          className="invisible flex-none group-data-[current]/menu-item:visible"
-          fill="currentColor"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <path d="m9.5 18-5.7-5.7 1.5-1.4 4.2 4.3L18.7 6l1.4 1.4L9.5 18Z" />
-        </svg>
         {children}
       </a>
     </li>

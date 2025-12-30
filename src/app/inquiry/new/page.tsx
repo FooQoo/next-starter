@@ -109,20 +109,20 @@ export default function NewInquiryPage() {
 
       <Divider />
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-8">
         {/* 基本情報 */}
-        <fieldset className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-          <Legend className="text-xl font-semibold text-sea-900 mb-4">
+        <fieldset className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+          <Legend className="text-xl font-semibold text-sea-900 mb-2">
             基本情報
           </Legend>
-          <SupportText className="mb-4">
+          <SupportText className="mb-6">
             問い合わせ者の基本情報を入力してください。必須項目は必ず入力が必要です。
           </SupportText>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {/* 件名 */}
             <div>
-              <Label htmlFor="subject">
+              <Label htmlFor="subject" className="mb-2 block">
                 件名 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -134,15 +134,17 @@ export default function NewInquiryPage() {
                 placeholder="問い合わせの件名を入力してください"
                 blockSize="md"
               />
-              <SupportText>
+              <SupportText className="mt-2">
                 簡潔で分かりやすい件名を入力してください
               </SupportText>
-              {errors.subject && <ErrorText>{errors.subject}</ErrorText>}
+              {errors.subject && (
+                <ErrorText className="mt-1">{errors.subject}</ErrorText>
+              )}
             </div>
 
             {/* 氏名 */}
             <div>
-              <Label htmlFor="name">
+              <Label htmlFor="name" className="mb-2 block">
                 氏名 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -154,12 +156,14 @@ export default function NewInquiryPage() {
                 placeholder="山田 太郎"
                 blockSize="md"
               />
-              {errors.name && <ErrorText>{errors.name}</ErrorText>}
+              {errors.name && (
+                <ErrorText className="mt-1">{errors.name}</ErrorText>
+              )}
             </div>
 
             {/* メールアドレス */}
             <div>
-              <Label htmlFor="email">
+              <Label htmlFor="email" className="mb-2 block">
                 メールアドレス <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -172,15 +176,17 @@ export default function NewInquiryPage() {
                 placeholder="example@example.com"
                 blockSize="md"
               />
-              <SupportText>
+              <SupportText className="mt-2">
                 返信先のメールアドレスを入力してください
               </SupportText>
-              {errors.email && <ErrorText>{errors.email}</ErrorText>}
+              {errors.email && (
+                <ErrorText className="mt-1">{errors.email}</ErrorText>
+              )}
             </div>
 
             {/* 電話番号 */}
             <div>
-              <Label htmlFor="phone">
+              <Label htmlFor="phone" className="mb-2 block">
                 電話番号{' '}
                 <RequirementBadge isOptional={true}>任意</RequirementBadge>
               </Label>
@@ -194,12 +200,14 @@ export default function NewInquiryPage() {
                 placeholder="090-1234-5678"
                 blockSize="md"
               />
-              <SupportText>緊急時の連絡先として使用します</SupportText>
+              <SupportText className="mt-2">
+                緊急時の連絡先として使用します
+              </SupportText>
             </div>
 
             {/* カテゴリ */}
             <div>
-              <Label htmlFor="category">
+              <Label htmlFor="category" className="mb-2 block">
                 カテゴリ <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Select
@@ -218,7 +226,9 @@ export default function NewInquiryPage() {
                 <option value="complaint">苦情・要望</option>
                 <option value="other">その他</option>
               </Select>
-              <SupportText>問い合わせの種類を選択してください</SupportText>
+              <SupportText className="mt-2">
+                問い合わせの種類を選択してください
+              </SupportText>
             </div>
           </div>
         </fieldset>
@@ -226,24 +236,24 @@ export default function NewInquiryPage() {
         <Divider />
 
         {/* 問い合わせ詳細 */}
-        <fieldset className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-          <Legend className="text-xl font-semibold text-sea-900 mb-4">
+        <fieldset className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+          <Legend className="text-xl font-semibold text-sea-900 mb-2">
             問い合わせ詳細
           </Legend>
-          <SupportText className="mb-4">
+          <SupportText className="mb-6">
             問い合わせの内容や優先度などの詳細情報を入力してください。
           </SupportText>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {/* 優先度（ラジオボタン） */}
             <div>
-              <Label>
+              <Label className="mb-2 block">
                 優先度 <RequirementBadge>必須</RequirementBadge>
               </Label>
-              <SupportText className="mb-2">
+              <SupportText className="mb-3">
                 問い合わせの緊急度に応じて優先度を選択してください
               </SupportText>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <Radio
                   name="priority"
                   value="high"
@@ -288,7 +298,7 @@ export default function NewInquiryPage() {
 
             {/* 問い合わせ内容 */}
             <div>
-              <Label htmlFor="content">
+              <Label htmlFor="content" className="mb-2 block">
                 問い合わせ内容 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Textarea
@@ -300,15 +310,17 @@ export default function NewInquiryPage() {
                 placeholder="問い合わせ内容を詳しく入力してください"
                 rows={8}
               />
-              <SupportText>
+              <SupportText className="mt-2">
                 できるだけ具体的に状況を説明してください。必要に応じてエラーメッセージや操作手順なども記載してください。
               </SupportText>
-              {errors.content && <ErrorText>{errors.content}</ErrorText>}
+              {errors.content && (
+                <ErrorText className="mt-1">{errors.content}</ErrorText>
+              )}
             </div>
 
             {/* 受付日 */}
             <div>
-              <Label htmlFor="receivedAt">
+              <Label htmlFor="receivedAt" className="mb-2 block">
                 受付日 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -320,14 +332,14 @@ export default function NewInquiryPage() {
                 }
                 blockSize="md"
               />
-              <SupportText>
+              <SupportText className="mt-2">
                 問い合わせを受け付けた日付を選択してください
               </SupportText>
             </div>
 
             {/* 対応期限 */}
             <div>
-              <Label htmlFor="dueDate">
+              <Label htmlFor="dueDate" className="mb-2 block">
                 対応期限{' '}
                 <RequirementBadge isOptional={true}>任意</RequirementBadge>
               </Label>
@@ -340,7 +352,7 @@ export default function NewInquiryPage() {
                 }
                 blockSize="md"
               />
-              <SupportText>
+              <SupportText className="mt-2">
                 対応が必要な期限がある場合は設定してください
               </SupportText>
             </div>

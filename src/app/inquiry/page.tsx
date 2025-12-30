@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {
   Button,
   Input,
@@ -157,7 +159,7 @@ export default function InquiryDashboard() {
   const currentInquiries = filteredInquiries.slice(startIndex, endIndex);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* ヘッダー */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
@@ -174,50 +176,56 @@ export default function InquiryDashboard() {
       <Divider />
 
       {/* 検索・フィルターセクション */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-xl font-semibold text-sea-900 mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <h2 className="text-xl font-semibold text-sea-900 mb-6">
           検索・フィルター
         </h2>
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* 検索ボックス */}
-            <div>
-              <Label htmlFor="search">キーワード検索</Label>
-              <Input
-                id="search"
-                type="text"
-                placeholder="件名、氏名、メールアドレスで検索"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                blockSize="md"
-              />
-              <SupportText>
-                件名、氏名、メールアドレス、問い合わせ内容から検索できます
-              </SupportText>
-            </div>
+        <div className="space-y-6">
+          <SupportText className="mb-4">
+            検索結果は検索フォームの下に表示されます。
+          </SupportText>
 
-            {/* ステータスフィルター */}
-            <div>
-              <Label htmlFor="status-filter">ステータス</Label>
+          {/* 検索対象 */}
+          <div>
+            <Label className="mb-3 block">検索対象</Label>
+            <div className="flex gap-3">
               <Select
                 id="status-filter"
                 value={statusFilter}
                 onChange={handleStatusFilterChange}
+                className="w-40"
               >
                 <option value="all">すべて</option>
                 <option value="pending">未対応</option>
                 <option value="in-progress">対応中</option>
                 <option value="completed">完了</option>
               </Select>
-              <SupportText>ステータスで問い合わせを絞り込めます</SupportText>
+              <Input
+                id="search"
+                type="text"
+                placeholder="サイト内検索"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                blockSize="md"
+                className="flex-1"
+              />
+              <Button size="md" variant="solid-fill" onClick={handleSearch}>
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="mr-2" />
+                検索
+              </Button>
             </div>
           </div>
 
-          <div className="flex justify-end">
-            <Button size="md" variant="solid-fill" onClick={handleSearch}>
-              検索
-            </Button>
+          {/* 表示件数 */}
+          <div>
+            <Label className="mb-3 block">表示件数</Label>
+            <Select className="w-40">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </Select>
           </div>
         </div>
       </div>
@@ -225,8 +233,8 @@ export default function InquiryDashboard() {
       <Divider />
 
       {/* 問い合わせ一覧 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <div className="flex justify-between items-center mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold text-sea-900">問い合わせ一覧</h2>
           <span className="text-sm text-solid-gray-600">
             {filteredInquiries.length}件
@@ -242,15 +250,15 @@ export default function InquiryDashboard() {
             問い合わせが見つかりませんでした
           </div>
         ) : (
-          <div className="space-y-4">
-            <Ul className="space-y-3">
+          <div className="space-y-6">
+            <Ul className="space-y-4">
               {currentInquiries.map((inquiry) => (
                 <li
                   key={inquiry.id}
-                  className="border border-solid-gray-200 rounded-lg p-4 hover:bg-solid-gray-50 transition-colors"
+                  className="border border-solid-gray-200 rounded-lg p-5 hover:bg-solid-gray-50 transition-colors"
                 >
                   <Link href={`/inquiry/${inquiry.id}`}>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                         <div className="flex-1">
                           <h3 className="font-semibold text-sea-900 text-lg">
@@ -345,11 +353,11 @@ export default function InquiryDashboard() {
       <Divider />
 
       {/* FAQセクション */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-xl font-semibold text-sea-900 mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <h2 className="text-xl font-semibold text-sea-900 mb-6">
           よくある質問
         </h2>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <Accordion>
             <AccordionSummary>
               問い合わせのステータスを変更するには？

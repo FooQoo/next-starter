@@ -15,7 +15,7 @@ import {
 
 export default function HelpPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* ヘッダー */}
       <div>
         <h1 className="text-3xl font-bold text-sea-900">
@@ -29,18 +29,18 @@ export default function HelpPage() {
       <Divider />
 
       {/* クイックスタートガイド */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-2xl font-semibold text-sea-900 mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <h2 className="text-2xl font-semibold text-sea-900 mb-6">
           クイックスタートガイド
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <Blockquote>
             このガイドでは、問い合わせ管理システムの基本的な使い方を説明します。
             初めてご利用の方は、以下の手順に従って操作してください。
           </Blockquote>
 
-          <div className="mt-4">
-            <h3 className="font-semibold text-lg text-sea-800 mb-2">
+          <div>
+            <h3 className="font-semibold text-lg text-sea-800 mb-3">
               1. 新しい問い合わせを作成する
             </h3>
             <Ol className="ml-6 space-y-2">
@@ -52,8 +52,8 @@ export default function HelpPage() {
             </Ol>
           </div>
 
-          <div className="mt-4">
-            <h3 className="font-semibold text-lg text-sea-800 mb-2">
+          <div>
+            <h3 className="font-semibold text-lg text-sea-800 mb-3">
               2. 問い合わせを検索・フィルターする
             </h3>
             <Ol className="ml-6 space-y-2">
@@ -64,8 +64,8 @@ export default function HelpPage() {
             </Ol>
           </div>
 
-          <div className="mt-4">
-            <h3 className="font-semibold text-lg text-sea-800 mb-2">
+          <div>
+            <h3 className="font-semibold text-lg text-sea-800 mb-3">
               3. 問い合わせに対応する
             </h3>
             <Ol className="ml-6 space-y-2">
@@ -82,12 +82,12 @@ export default function HelpPage() {
       <Divider />
 
       {/* よくある質問 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-2xl font-semibold text-sea-900 mb-4">
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <h2 className="text-2xl font-semibold text-sea-900 mb-6">
           よくある質問（FAQ）
         </h2>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           {/* 基本操作に関するFAQ */}
           <Accordion>
             <AccordionSummary>
@@ -251,8 +251,8 @@ export default function HelpPage() {
       <Divider />
 
       {/* 追加情報 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-2xl font-semibold text-sea-900 mb-4">追加情報</h2>
+      <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
+        <h2 className="text-2xl font-semibold text-sea-900 mb-6">追加情報</h2>
 
         <Disclosure>
           <DisclosureSummary>システム要件</DisclosureSummary>

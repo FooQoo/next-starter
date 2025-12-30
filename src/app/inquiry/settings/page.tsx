@@ -40,7 +40,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* ヘッダー */}
       <div>
         <h1 className="text-3xl font-bold text-sea-900">設定</h1>
@@ -54,17 +54,17 @@ export default function SettingsPage() {
       {/* 通知設定 */}
       <div className="bg-white rounded-lg shadow-sm border border-solid-gray-200">
         <Accordion open>
-          <AccordionSummary className="px-6 py-4">
+          <AccordionSummary className="px-8 py-5">
             <h2 className="text-xl font-semibold text-sea-900">通知設定</h2>
           </AccordionSummary>
-          <AccordionContent className="px-6 pb-6">
-            <div className="space-y-4">
+          <AccordionContent className="px-8 pb-8">
+            <div className="space-y-6">
               <p className="text-sm text-solid-gray-700 mb-4">
                 通知の受信方法と通知する内容を設定できます
               </p>
 
-              <div className="space-y-3">
-                <div className="font-semibold text-sea-800 mb-2">通知方法</div>
+              <div className="space-y-4">
+                <div className="font-semibold text-sea-800 mb-3">通知方法</div>
                 <Checkbox
                   checked={notificationSettings.emailNotification}
                   onChange={(e) =>
@@ -91,8 +91,8 @@ export default function SettingsPage() {
 
               <Divider />
 
-              <div className="space-y-3">
-                <div className="font-semibold text-sea-800 mb-2">通知内容</div>
+              <div className="space-y-4">
+                <div className="font-semibold text-sea-800 mb-3">通知内容</div>
                 <Checkbox
                   checked={notificationSettings.newInquiry}
                   onChange={(e) =>
@@ -135,18 +135,18 @@ export default function SettingsPage() {
       {/* 表示設定 */}
       <div className="bg-white rounded-lg shadow-sm border border-solid-gray-200">
         <Accordion>
-          <AccordionSummary className="px-6 py-4">
+          <AccordionSummary className="px-8 py-5">
             <h2 className="text-xl font-semibold text-sea-900">表示設定</h2>
           </AccordionSummary>
-          <AccordionContent className="px-6 pb-6">
-            <div className="space-y-4">
+          <AccordionContent className="px-8 pb-8">
+            <div className="space-y-6">
               <p className="text-sm text-solid-gray-700 mb-4">
                 画面表示に関する設定を行います
               </p>
 
               {/* テーマ選択 - ライトモード固定 */}
               <div>
-                <Label className="font-semibold text-sea-800 mb-2">
+                <Label className="font-semibold text-sea-800 mb-3 block">
                   テーマ
                 </Label>
                 <div className="mt-2">
@@ -162,7 +162,7 @@ export default function SettingsPage() {
               <div>
                 <Label
                   htmlFor="items-per-page"
-                  className="font-semibold text-sea-800"
+                  className="font-semibold text-sea-800 mb-3 block"
                 >
                   1ページあたりの表示件数
                 </Label>
@@ -175,7 +175,7 @@ export default function SettingsPage() {
                       itemsPerPage: e.target.value,
                     })
                   }
-                  className="mt-2 max-w-xs"
+                  className="max-w-xs"
                 >
                   <option value="5">5件</option>
                   <option value="10">10件</option>
@@ -190,7 +190,7 @@ export default function SettingsPage() {
               <div>
                 <Label
                   htmlFor="language"
-                  className="font-semibold text-sea-800"
+                  className="font-semibold text-sea-800 mb-3 block"
                 >
                   言語
                 </Label>
@@ -203,7 +203,7 @@ export default function SettingsPage() {
                       language: e.target.value,
                     })
                   }
-                  className="mt-2 max-w-xs"
+                  className="max-w-xs"
                 >
                   <option value="ja">日本語</option>
                   <option value="en">English</option>
@@ -217,18 +217,18 @@ export default function SettingsPage() {
       {/* プライバシー設定 */}
       <div className="bg-white rounded-lg shadow-sm border border-solid-gray-200">
         <Accordion>
-          <AccordionSummary className="px-6 py-4">
+          <AccordionSummary className="px-8 py-5">
             <h2 className="text-xl font-semibold text-sea-900">
               プライバシー設定
             </h2>
           </AccordionSummary>
-          <AccordionContent className="px-6 pb-6">
-            <div className="space-y-4">
+          <AccordionContent className="px-8 pb-8">
+            <div className="space-y-6">
               <p className="text-sm text-solid-gray-700 mb-4">
                 個人情報の表示と分析に関する設定を行います
               </p>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <Checkbox
                   checked={privacySettings.showEmail}
                   onChange={(e) =>
@@ -280,19 +280,21 @@ export default function SettingsPage() {
       {/* アカウント設定 */}
       <div className="bg-white rounded-lg shadow-sm border border-solid-gray-200">
         <Accordion>
-          <AccordionSummary className="px-6 py-4">
+          <AccordionSummary className="px-8 py-5">
             <h2 className="text-xl font-semibold text-sea-900">
               アカウント設定
             </h2>
           </AccordionSummary>
-          <AccordionContent className="px-6 pb-6">
-            <div className="space-y-4">
+          <AccordionContent className="px-8 pb-8">
+            <div className="space-y-6">
               <p className="text-sm text-solid-gray-700 mb-4">
                 アカウントに関する設定を行います
               </p>
 
               <div>
-                <Label htmlFor="username">ユーザー名</Label>
+                <Label htmlFor="username" className="mb-3 block">
+                  ユーザー名
+                </Label>
                 <Input
                   id="username"
                   type="text"
@@ -303,7 +305,9 @@ export default function SettingsPage() {
               </div>
 
               <div>
-                <Label htmlFor="email">メールアドレス</Label>
+                <Label htmlFor="email" className="mb-3 block">
+                  メールアドレス
+                </Label>
                 <Input
                   id="email"
                   type="email"

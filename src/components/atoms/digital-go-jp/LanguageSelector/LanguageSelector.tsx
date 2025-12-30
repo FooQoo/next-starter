@@ -1,13 +1,18 @@
-import type { ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 
 export type LanguageSelectorProps = ComponentProps<'div'>;
 
-export const LanguageSelector = (props: LanguageSelectorProps) => {
+export const LanguageSelector = forwardRef<
+  HTMLDivElement,
+  LanguageSelectorProps
+>((props, ref) => {
   const { children, className, ...rest } = props;
 
   return (
-    <div className={`group relative ${className ?? ''}`} {...rest}>
+    <div className={`group relative ${className ?? ''}`} ref={ref} {...rest}>
       {children}
     </div>
   );
-};
+});
+
+LanguageSelector.displayName = 'LanguageSelector';
