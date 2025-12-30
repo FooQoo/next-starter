@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@heroui/shared-utils'
+  - '@parcel/watcher'
+  - core-js-pure
+  - esbuild
+  - sharp
+  - unrs-resolver
