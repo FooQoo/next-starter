@@ -1,3 +1,4 @@
+import { heroui } from '@heroui/react';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -15,9 +16,9 @@ const config: Config = {
   // Note: Tailwind v4 has different plugin architecture
   // Temporarily disabled plugins for compatibility
   plugins: [
-    // heroui(), // Needs v4 compatibility check
-    // require('@digital-go-jp/tailwind-theme-plugin'), // Needs v4 compatibility check
-    // require('@tailwindcss/container-queries'), // Needs v4 compatibility check
+    heroui(), // Needs v4 compatibility check
+    require('@digital-go-jp/tailwind-theme-plugin'), // Needs v4 compatibility check
+    require('@tailwindcss/container-queries'), // Needs v4 compatibility check
   ],
 };
 export default config;

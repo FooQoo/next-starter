@@ -1,118 +1,82 @@
-import Twemoji from '@/components/atoms/twemoji/Twemoji';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
-import twemoji from 'twemoji';
+import Link from 'next/link';
+import { Button } from '@/components/atoms/digital-go-jp';
 
-const Home = () => {
+export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gradient-to-b from-white to-solid-gray-50">
+      <div className="max-w-4xl w-full text-center space-y-8">
+        {/* ヘッダー */}
+        <div className="space-y-4">
+          <h1 className="text-5xl font-bold text-sea-900">
+            問い合わせ管理システム
+          </h1>
+          <p className="text-xl text-solid-gray-800">
+            行政の問い合わせを効率的に管理する統合プラットフォーム
+          </p>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-0">
-        <div className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert">
-          <FontAwesomeIcon
-            icon={faCoffee}
-            width={180}
-            height={37}
-            color="black"
-          />
+        {/* 説明 */}
+        <div className="bg-white p-8 rounded-lg shadow-md border border-solid-gray-200">
+          <h2 className="text-2xl font-semibold text-sea-900 mb-4">
+            システムの特徴
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sea-800 text-lg">
+                📋 問い合わせ管理
+              </h3>
+              <p className="text-solid-gray-700">
+                市民からの問い合わせを一元管理。ステータス管理、優先度設定、期限管理に対応しています。
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sea-800 text-lg">
+                📸 写真コンテンツ管理
+              </h3>
+              <p className="text-solid-gray-700">
+                問い合わせに関連する写真を登録・管理。カテゴリ分類、日時記録、公開設定が可能です。
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sea-800 text-lg">
+                🔍 高度な検索・フィルター
+              </h3>
+              <p className="text-solid-gray-700">
+                キーワード検索、ステータスフィルター、カテゴリフィルターで目的の情報を素早く見つけられます。
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-semibold text-sea-800 text-lg">
+                ♿ アクセシビリティ対応
+              </h3>
+              <p className="text-solid-gray-700">
+                デジタル庁デザインシステムを採用し、すべての市民が利用しやすいインターフェースを実現しています。
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            <Twemoji emoji="Docs 📗" />
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        {/* アクションボタン */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/inquiry">
+            <Button size="lg" variant="solid-fill" className="min-w-[200px]">
+              問い合わせ管理を開く
+            </Button>
+          </Link>
+          <Link href="/inquiry/help">
+            <Button size="lg" variant="outline" className="min-w-[200px]">
+              使い方を見る
+            </Button>
+          </Link>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+        {/* フッター */}
+        <div className="text-sm text-solid-gray-600 pt-8">
+          <p>
+            このシステムはデジタル庁のデザインシステムコンポーネントを使用して構築されています。
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        </div>
       </div>
     </main>
   );
-};
-
-export default Home;
+}
