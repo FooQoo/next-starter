@@ -51,6 +51,7 @@ tailwind.config.ts   Tailwind + NextUI plugin setup
 - Component styles stay next to their implementation (`Component.tsx`, `Component.scss`, `Component.stories.ts`).
 - `src/app/providers.tsx` wraps the tree with `NextUIProvider` so HeroUI/NextUI components share theme state.
 - The `Twemoji` atom serves emoji as SVGs via CDN, and Font Awesome is ready for icon usage in pages.
+- Uses [Digital Agency Design System](https://github.com/digital-go-jp/design-system-example-components-react) for accessible and government-standard UI components.
 
 ## Storybook & Demo Content
 
