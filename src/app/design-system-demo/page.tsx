@@ -7,7 +7,7 @@ import {
   Link,
   Checkbox,
   Radio,
-} from '@/components/design-system';
+} from '@/components/atoms/digital-go-jp';
 
 export default function DesignSystemDemo() {
   return (
