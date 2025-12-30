@@ -2,3 +2,9 @@ package.json
 .*
 public
 LICENSE
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
