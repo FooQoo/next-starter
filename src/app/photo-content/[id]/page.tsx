@@ -292,7 +292,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
               </h2>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="title">
+                  <Label htmlFor="title" className="mb-2 block">
                     タイトル{' '}
                     <RequirementBadge isOptional={false}>必須</RequirementBadge>
                   </Label>
@@ -303,12 +303,15 @@ export default function PhotoDetailPage({ params }: PageProps) {
                       setFormData({ ...formData, title: e.target.value })
                     }
                     blockSize="md"
+                    className="w-full"
                   />
                   {errors.title && <ErrorText>{errors.title}</ErrorText>}
                 </div>
 
                 <div>
-                  <Label htmlFor="category">カテゴリ</Label>
+                  <Label htmlFor="category" className="mb-2 block">
+                    カテゴリ
+                  </Label>
                   <Select
                     id="category"
                     value={formData.category}
@@ -318,6 +321,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                         category: e.target.value as PhotoCategory,
                       })
                     }
+                    className="w-full"
                   >
                     <option value="event">イベント</option>
                     <option value="facility">施設</option>
@@ -327,7 +331,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                 </div>
 
                 <div>
-                  <Label htmlFor="description">
+                  <Label htmlFor="description" className="mb-2 block">
                     説明{' '}
                     <RequirementBadge isOptional={false}>必須</RequirementBadge>
                   </Label>
@@ -338,6 +342,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                       setFormData({ ...formData, description: e.target.value })
                     }
                     rows={4}
+                    className="w-full"
                   />
                   {errors.description && (
                     <ErrorText>{errors.description}</ErrorText>
@@ -345,7 +350,9 @@ export default function PhotoDetailPage({ params }: PageProps) {
                 </div>
 
                 <div>
-                  <Label htmlFor="takenAt">撮影日</Label>
+                  <Label htmlFor="takenAt" className="mb-2 block">
+                    撮影日
+                  </Label>
                   <Input
                     id="takenAt"
                     type="date"
@@ -357,7 +364,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                   />
                 </div>
 
-                <div>
+                <div className="pt-2">
                   <Checkbox
                     checked={formData.isPublic}
                     onChange={(e) =>
@@ -369,7 +376,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                 </div>
 
                 <div>
-                  <Label htmlFor="tags">
+                  <Label htmlFor="tags" className="mb-2 block">
                     タグ{' '}
                     <RequirementBadge isOptional={true}>任意</RequirementBadge>
                   </Label>
@@ -381,6 +388,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
                     }
                     placeholder="タグをカンマ区切りで入力"
                     blockSize="md"
+                    className="w-full"
                   />
                 </div>
               </div>
