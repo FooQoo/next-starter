@@ -23,7 +23,7 @@ import {
   Divider,
 } from '@/components/atoms/digital-go-jp';
 import { Dialog, DialogBody } from '@/components/atoms/digital-go-jp/Dialog';
-import { getInquiry, updateInquiry, deleteInquiry } from '../actions';
+import { getInquiry, updateInquiry, deleteInquiry } from '@/app/actions';
 import type {
   Inquiry,
   InquiryStatus,
@@ -96,7 +96,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
               : '',
           });
         } else {
-          router.push('/');
+          router.push('/inquiry');
         }
       } catch (error) {
         console.error('データの取得に失敗しました:', error);
@@ -161,7 +161,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
     setIsDeleting(true);
     try {
       await deleteInquiry(id);
-      router.push('/');
+      router.push('/inquiry');
     } catch (error) {
       console.error('削除に失敗しました:', error);
       alert('削除に失敗しました');
@@ -183,7 +183,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
     return (
       <div className="text-center py-8">
         <p className="text-solid-gray-600">問い合わせが見つかりませんでした</p>
-        <Link href="/">
+        <Link href="/inquiry">
           <Button size="md" className="mt-4">
             一覧に戻る
           </Button>
@@ -213,7 +213,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
               <Button
                 size="md"
                 variant="outline"
-                onClick={() => router.push('/')}
+                onClick={() => router.push('/inquiry')}
               >
                 一覧に戻る
               </Button>

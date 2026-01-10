@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   faChartLine,
+  faList,
   faImage,
   faCog,
   faQuestionCircle,
@@ -12,7 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SidebarNavItem } from './SidebarNavItem';
 
 const navLinks = [
-  { href: '/', label: 'ダッシュボード', icon: faChartLine },
+  { href: '/', label: '統計ダッシュボード', icon: faChartLine },
+  { href: '/inquiry', label: '問い合わせ一覧', icon: faList },
   { href: '/photo-content', label: '写真管理', icon: faImage },
   { href: '/settings', label: '設定', icon: faCog },
   { href: '/help', label: 'ヘルプ', icon: faQuestionCircle },

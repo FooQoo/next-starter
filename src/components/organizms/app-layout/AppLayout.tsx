@@ -65,7 +65,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
       let label = path;
 
       // パスに基づいてラベルを日本語化
-      if (path === 'inquiry') label = '問い合わせ管理';
+      if (path === 'inquiry') label = '問い合わせ一覧';
       else if (path === 'photo-content') label = '写真コンテンツ';
       else if (path === 'settings') label = '設定';
       else if (path === 'help') label = 'ヘルプ';

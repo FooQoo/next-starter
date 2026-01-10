@@ -16,7 +16,7 @@ import {
   SupportText,
   Divider,
 } from '@/components/atoms/digital-go-jp';
-import { createInquiry } from '../actions';
+import { createInquiry } from '@/app/actions';
 import type { InquiryCategory, InquiryPriority } from '@/types/inquiry';
 
 export default function NewInquiryPage() {
@@ -94,7 +94,7 @@ export default function NewInquiryPage() {
             問い合わせ情報を入力してください
           </p>
         </div>
-        <Link href="/">
+        <Link href="/inquiry">
           <Button size="md" variant="outline">
             一覧に戻る
           </Button>
@@ -363,7 +363,7 @@ export default function NewInquiryPage() {
 
         {/* 送信ボタン */}
         <div className="flex justify-end gap-4">
-          <Link href="/">
+          <Link href="/inquiry">
             <Button size="md" variant="outline" type="button">
               キャンセル
             </Button>
