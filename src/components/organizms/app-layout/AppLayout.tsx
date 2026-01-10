@@ -87,7 +87,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
   const breadcrumbs = getBreadcrumbs();
 
   return (
-    <div className="min-h-screen flex bg-solid-gray-50">
+    <div className="min-h-screen flex bg-white">
       {/* サイドバー */}
       <Sidebar
         isOpen={isMobileMenuOpen}
