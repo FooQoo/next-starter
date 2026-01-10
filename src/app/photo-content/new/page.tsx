@@ -132,12 +132,12 @@ export default function NewPhotoPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* 画像アップロード */}
         <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-          <h2 className="text-xl font-semibold text-sea-900 mb-4">
+          <h2 className="text-xl font-semibold text-sea-900 mb-6">
             画像アップロード
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <Label htmlFor="image">
+              <Label htmlFor="image" className="block mb-2">
                 画像ファイル{' '}
                 <RequirementBadge isOptional={false}>必須</RequirementBadge>
               </Label>
@@ -162,8 +162,8 @@ export default function NewPhotoPage() {
 
             {imagePreview && (
               <div className="mt-4">
-                <Label>プレビュー</Label>
-                <div className="relative w-full h-64 bg-solid-gray-100 rounded-lg overflow-hidden mt-2">
+                <Label className="block mb-2">プレビュー</Label>
+                <div className="relative w-full h-64 bg-solid-gray-100 rounded-lg overflow-hidden">
                   <Image
                     src={imagePreview}
                     alt="プレビュー"
@@ -181,10 +181,10 @@ export default function NewPhotoPage() {
 
         {/* 基本情報 */}
         <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-          <h2 className="text-xl font-semibold text-sea-900 mb-4">基本情報</h2>
-          <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-sea-900 mb-6">基本情報</h2>
+          <div className="space-y-6">
             <div>
-              <Label htmlFor="title">
+              <Label htmlFor="title" className="block mb-2">
                 タイトル{' '}
                 <RequirementBadge isOptional={false}>必須</RequirementBadge>
               </Label>
@@ -196,15 +196,18 @@ export default function NewPhotoPage() {
                 }
                 placeholder="写真のタイトルを入力してください"
                 blockSize="md"
+                className="w-full"
               />
-              <SupportText>
+              <SupportText className="mt-1">
                 写真の内容が分かりやすいタイトルを入力してください
               </SupportText>
-              {errors.title && <ErrorText>{errors.title}</ErrorText>}
+              {errors.title && (
+                <ErrorText className="mt-1">{errors.title}</ErrorText>
+              )}
             </div>
 
             <div>
-              <Label htmlFor="category">
+              <Label htmlFor="category" className="block mb-2">
                 カテゴリ{' '}
                 <RequirementBadge isOptional={false}>必須</RequirementBadge>
               </Label>
@@ -217,17 +220,20 @@ export default function NewPhotoPage() {
                     category: e.target.value as PhotoCategory,
                   })
                 }
+                className="w-full"
               >
                 <option value="event">イベント</option>
                 <option value="facility">施設</option>
                 <option value="document">書類</option>
                 <option value="other">その他</option>
               </Select>
-              <SupportText>写真の種類を選択してください</SupportText>
+              <SupportText className="mt-1">
+                写真の種類を選択してください
+              </SupportText>
             </div>
 
             <div>
-              <Label htmlFor="description">
+              <Label htmlFor="description" className="block mb-2">
                 説明{' '}
                 <RequirementBadge isOptional={false}>必須</RequirementBadge>
               </Label>
@@ -239,17 +245,18 @@ export default function NewPhotoPage() {
                 }
                 placeholder="写真の詳細な説明を入力してください"
                 rows={6}
+                className="w-full"
               />
-              <SupportText>
+              <SupportText className="mt-1">
                 写真の内容、撮影場所、背景情報などを詳しく記載してください
               </SupportText>
               {errors.description && (
-                <ErrorText>{errors.description}</ErrorText>
+                <ErrorText className="mt-1">{errors.description}</ErrorText>
               )}
             </div>
 
             <div>
-              <Label htmlFor="takenAt">
+              <Label htmlFor="takenAt" className="block mb-2">
                 撮影日{' '}
                 <RequirementBadge isOptional={false}>必須</RequirementBadge>
               </Label>
@@ -261,12 +268,15 @@ export default function NewPhotoPage() {
                   setFormData({ ...formData, takenAt: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
-              <SupportText>写真を撮影した日付を選択してください</SupportText>
+              <SupportText className="mt-1">
+                写真を撮影した日付を選択してください
+              </SupportText>
             </div>
 
             <div>
-              <Label htmlFor="tags">
+              <Label htmlFor="tags" className="block mb-2">
                 タグ <RequirementBadge isOptional={true}>任意</RequirementBadge>
               </Label>
               <Input
@@ -277,8 +287,9 @@ export default function NewPhotoPage() {
                 }
                 placeholder="例: 市役所, イベント, 2025年"
                 blockSize="md"
+                className="w-full"
               />
-              <SupportText>
+              <SupportText className="mt-1">
                 タグをカンマ区切りで入力してください。検索時に便利です。
               </SupportText>
             </div>
