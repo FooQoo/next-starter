@@ -22,7 +22,7 @@ import {
   Blockquote,
   Divider,
 } from '@/components/atoms/digital-go-jp';
-import { Dialog, DialogBody } from '@/components/atoms/digital-go-jp/v1/Dialog';
+import { Dialog, DialogBody } from '@/components/atoms/digital-go-jp/Dialog';
 import { getInquiry, updateInquiry, deleteInquiry } from '../actions';
 import type {
   Inquiry,

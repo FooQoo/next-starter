@@ -25,7 +25,7 @@ import {
   PaginationLast,
   PaginationItem,
   PaginationCurrent,
-} from '@/components/atoms/digital-go-jp/v1/Pagination';
+} from '@/components/atoms/digital-go-jp/Pagination';
 import {
   getInquiries,
   searchInquiries,
