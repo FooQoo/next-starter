@@ -321,11 +321,11 @@ export default function InquiryDetailPage({ params }: PageProps) {
       {/* 基本情報（編集モード） */}
       {isEditing && (
         <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-          <h2 className="text-xl font-semibold text-sea-900 mb-4">基本情報</h2>
-          <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-sea-900 mb-6">基本情報</h2>
+          <div className="space-y-6">
             {/* 件名 */}
             <div>
-              <Label htmlFor="subject">
+              <Label htmlFor="subject" className="block mb-2">
                 件名 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -335,13 +335,16 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, subject: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
-              {errors.subject && <ErrorText>{errors.subject}</ErrorText>}
+              {errors.subject && (
+                <ErrorText className="mt-1">{errors.subject}</ErrorText>
+              )}
             </div>
 
             {/* 氏名 */}
             <div>
-              <Label htmlFor="name">
+              <Label htmlFor="name" className="block mb-2">
                 氏名 <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -351,13 +354,16 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
-              {errors.name && <ErrorText>{errors.name}</ErrorText>}
+              {errors.name && (
+                <ErrorText className="mt-1">{errors.name}</ErrorText>
+              )}
             </div>
 
             {/* メールアドレス */}
             <div>
-              <Label htmlFor="email">
+              <Label htmlFor="email" className="block mb-2">
                 メールアドレス <RequirementBadge>必須</RequirementBadge>
               </Label>
               <Input
@@ -368,13 +374,16 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
-              {errors.email && <ErrorText>{errors.email}</ErrorText>}
+              {errors.email && (
+                <ErrorText className="mt-1">{errors.email}</ErrorText>
+              )}
             </div>
 
             {/* 電話番号 */}
             <div>
-              <Label htmlFor="phone">
+              <Label htmlFor="phone" className="block mb-2">
                 電話番号{' '}
                 <RequirementBadge isOptional={true}>任意</RequirementBadge>
               </Label>
@@ -386,12 +395,15 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, phone: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
             </div>
 
             {/* カテゴリ */}
             <div>
-              <Label htmlFor="category">カテゴリ</Label>
+              <Label htmlFor="category" className="block mb-2">
+                カテゴリ
+              </Label>
               <Select
                 id="category"
                 value={formData.category}
@@ -401,6 +413,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
                     category: e.target.value as InquiryCategory,
                   })
                 }
+                className="w-full"
               >
                 <option value="general">一般</option>
                 <option value="technical">技術的な問題</option>
@@ -410,10 +423,10 @@ export default function InquiryDetailPage({ params }: PageProps) {
               </Select>
             </div>
 
-            {/* 優先度（ラジオボタン） */}
+            {/* 優先度（ラジオボタン - 横並び） */}
             <div>
-              <Label>優先度</Label>
-              <div className="space-y-2 mt-2">
+              <Label className="block mb-2">優先度</Label>
+              <div className="flex gap-6">
                 <Radio
                   name="priority"
                   value="high"
@@ -458,7 +471,9 @@ export default function InquiryDetailPage({ params }: PageProps) {
 
             {/* ステータス */}
             <div>
-              <Label htmlFor="status">ステータス</Label>
+              <Label htmlFor="status" className="block mb-2">
+                ステータス
+              </Label>
               <Select
                 id="status"
                 value={formData.status}
@@ -468,6 +483,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
                     status: e.target.value as InquiryStatus,
                   })
                 }
+                className="w-full"
               >
                 <option value="pending">未対応</option>
                 <option value="in-progress">対応中</option>
@@ -477,7 +493,9 @@ export default function InquiryDetailPage({ params }: PageProps) {
 
             {/* 受付日 */}
             <div>
-              <Label htmlFor="receivedAt">受付日</Label>
+              <Label htmlFor="receivedAt" className="block mb-2">
+                受付日
+              </Label>
               <Input
                 id="receivedAt"
                 type="date"
@@ -486,12 +504,15 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, receivedAt: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
             </div>
 
             {/* 対応期限 */}
             <div>
-              <Label htmlFor="dueDate">対応期限</Label>
+              <Label htmlFor="dueDate" className="block mb-2">
+                対応期限
+              </Label>
               <Input
                 id="dueDate"
                 type="date"
@@ -500,6 +521,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
                   setFormData({ ...formData, dueDate: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
             </div>
 
@@ -536,7 +558,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
           <Blockquote>{inquiry.content}</Blockquote>
         ) : (
           <div>
-            <Label htmlFor="content">
+            <Label htmlFor="content" className="block mb-2">
               問い合わせ内容 <RequirementBadge>必須</RequirementBadge>
             </Label>
             <Textarea
@@ -546,8 +568,11 @@ export default function InquiryDetailPage({ params }: PageProps) {
                 setFormData({ ...formData, content: e.target.value })
               }
               rows={6}
+              className="w-full"
             />
-            {errors.content && <ErrorText>{errors.content}</ErrorText>}
+            {errors.content && (
+              <ErrorText className="mt-1">{errors.content}</ErrorText>
+            )}
           </div>
         )}
       </div>
@@ -565,7 +590,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
           )
         ) : (
           <div>
-            <Label htmlFor="response">
+            <Label htmlFor="response" className="block mb-2">
               返信内容{' '}
               <RequirementBadge isOptional={true}>任意</RequirementBadge>
             </Label>
@@ -577,6 +602,7 @@ export default function InquiryDetailPage({ params }: PageProps) {
               }
               rows={6}
               placeholder="問い合わせへの返信を入力してください"
+              className="w-full"
             />
           </div>
         )}

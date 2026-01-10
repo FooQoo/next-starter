@@ -133,6 +133,7 @@ export default function NewInquiryPage() {
                 }
                 placeholder="問い合わせの件名を入力してください"
                 blockSize="md"
+                className="w-full"
               />
               <SupportText className="mt-2">
                 簡潔で分かりやすい件名を入力してください
@@ -155,6 +156,7 @@ export default function NewInquiryPage() {
                 }
                 placeholder="山田 太郎"
                 blockSize="md"
+                className="w-full"
               />
               {errors.name && (
                 <ErrorText className="mt-1">{errors.name}</ErrorText>
@@ -175,6 +177,7 @@ export default function NewInquiryPage() {
                 }
                 placeholder="example@example.com"
                 blockSize="md"
+                className="w-full"
               />
               <SupportText className="mt-2">
                 返信先のメールアドレスを入力してください
@@ -199,6 +202,7 @@ export default function NewInquiryPage() {
                 }
                 placeholder="090-1234-5678"
                 blockSize="md"
+                className="w-full"
               />
               <SupportText className="mt-2">
                 緊急時の連絡先として使用します
@@ -219,6 +223,7 @@ export default function NewInquiryPage() {
                     category: e.target.value as InquiryCategory,
                   })
                 }
+                className="w-full"
               >
                 <option value="general">一般的な問い合わせ</option>
                 <option value="technical">技術的な問題</option>
@@ -253,7 +258,7 @@ export default function NewInquiryPage() {
               <SupportText className="mb-3">
                 問い合わせの緊急度に応じて優先度を選択してください
               </SupportText>
-              <div className="space-y-3">
+              <div className="flex gap-6">
                 <Radio
                   name="priority"
                   value="high"
@@ -265,7 +270,7 @@ export default function NewInquiryPage() {
                     })
                   }
                 >
-                  高 - 緊急対応が必要
+                  高
                 </Radio>
                 <Radio
                   name="priority"
@@ -278,7 +283,7 @@ export default function NewInquiryPage() {
                     })
                   }
                 >
-                  中 - 通常対応
+                  中
                 </Radio>
                 <Radio
                   name="priority"
@@ -291,7 +296,7 @@ export default function NewInquiryPage() {
                     })
                   }
                 >
-                  低 - 時間的余裕がある
+                  低
                 </Radio>
               </div>
             </div>
@@ -309,6 +314,7 @@ export default function NewInquiryPage() {
                 }
                 placeholder="問い合わせ内容を詳しく入力してください"
                 rows={8}
+                className="w-full"
               />
               <SupportText className="mt-2">
                 できるだけ具体的に状況を説明してください。必要に応じてエラーメッセージや操作手順なども記載してください。
@@ -331,6 +337,7 @@ export default function NewInquiryPage() {
                   setFormData({ ...formData, receivedAt: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
               <SupportText className="mt-2">
                 問い合わせを受け付けた日付を選択してください
@@ -351,6 +358,7 @@ export default function NewInquiryPage() {
                   setFormData({ ...formData, dueDate: e.target.value })
                 }
                 blockSize="md"
+                className="w-full"
               />
               <SupportText className="mt-2">
                 対応が必要な期限がある場合は設定してください

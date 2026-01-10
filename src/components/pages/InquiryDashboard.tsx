@@ -251,7 +251,7 @@ export default function InquiryDashboard() {
           </div>
         ) : (
           <div className="space-y-6">
-            <Ul className="space-y-4">
+            <Ul unstyled className="space-y-4">
               {currentInquiries.map((inquiry) => (
                 <li
                   key={inquiry.id}
