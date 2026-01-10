@@ -8,7 +8,7 @@ export type InputProps = ComponentProps<'input'> & {
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { className, readOnly, isError, blockSize = 'lg', ...rest } = props;
+  const { className, readOnly, isError, blockSize = 'md', ...rest } = props;
 
   return (
     <input
