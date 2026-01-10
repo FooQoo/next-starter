@@ -222,11 +222,11 @@ export default function PhotoContentListPage() {
                 <Link
                   key={photo.id}
                   href={`/photo-content/${photo.id}`}
-                  className="group"
+                  className="group h-full"
                 >
-                  <div className="border border-solid-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="h-full flex flex-col border border-solid-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                     {/* 画像 */}
-                    <div className="relative w-full h-48 bg-solid-gray-100">
+                    <div className="relative w-full h-48 bg-solid-gray-100 flex-shrink-0">
                       <Image
                         src={photo.imageUrl}
                         alt={photo.title}
@@ -237,7 +237,7 @@ export default function PhotoContentListPage() {
                     </div>
 
                     {/* 情報 */}
-                    <div className="p-4 space-y-2">
+                    <div className="p-4 flex flex-col flex-1">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-semibold text-sea-900 line-clamp-2 group-hover:text-sea-700">
                           {photo.title}
@@ -245,36 +245,40 @@ export default function PhotoContentListPage() {
                         <StatusBadge
                           className={
                             photo.isPublic
-                              ? 'bg-green-100 text-green-800'
-                              : 'bg-gray-100 text-gray-800'
+                              ? 'bg-green-600 text-white'
+                              : 'bg-gray-500 text-white'
                           }
                         >
                           {photo.isPublic ? '公開' : '非公開'}
                         </StatusBadge>
                       </div>
-                      <p className="text-sm text-solid-gray-700 line-clamp-2">
+                      <p className="text-sm text-solid-gray-700 line-clamp-2 mt-2">
                         {photo.description}
                       </p>
-                      <div className="flex flex-wrap gap-2 text-xs text-solid-gray-600">
+                      <div className="flex flex-wrap gap-2 text-xs text-solid-gray-600 mt-2">
                         <span className="px-2 py-1 bg-solid-gray-100 rounded">
                           {getCategoryLabel(photo.category)}
                         </span>
-                        <span>
+                        <span className="py-1">
                           {new Date(photo.takenAt).toLocaleDateString('ja-JP')}
                         </span>
                       </div>
-                      {photo.tags && photo.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-1">
-                          {photo.tags.map((tag, idx) => (
+                      <div className="flex flex-wrap gap-1 mt-auto pt-2">
+                        {photo.tags && photo.tags.length > 0 ? (
+                          photo.tags.map((tag, idx) => (
                             <span
                               key={idx}
                               className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded"
                             >
                               #{tag}
                             </span>
-                          ))}
-                        </div>
-                      )}
+                          ))
+                        ) : (
+                          <span className="text-xs py-1 invisible">
+                            placeholder
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Link>
