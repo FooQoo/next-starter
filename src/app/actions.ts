@@ -10,6 +10,8 @@ import type {
   CreateInquiryInput,
   UpdateInquiryInput,
 } from '@/types/inquiry';
+import type { InquiryStatistics } from '@/types/inquiry-statistics';
+import { getStatsSummary } from '@/lib/utils/inquiry-statistics';
 
 export async function getInquiries(): Promise<Inquiry[]> {
   return inquiryStore.getAll();
@@ -63,6 +65,7 @@ export async function createInquiry(formData: FormData): Promise<Inquiry> {
 
   const inquiry = inquiryStore.create(data);
   revalidatePath('/');
+  revalidatePath('/inquiry');
   return inquiry;
 }
 
@@ -94,12 +97,19 @@ export async function updateInquiry(
 
   const inquiry = inquiryStore.update(id, data);
   revalidatePath('/');
-  revalidatePath(`/${id}`);
+  revalidatePath('/inquiry');
+  revalidatePath(`/inquiry/${id}`);
   return inquiry;
 }
 
 export async function deleteInquiry(id: string): Promise<boolean> {
   const result = inquiryStore.delete(id);
   revalidatePath('/');
+  revalidatePath('/inquiry');
   return result;
+}
+
+export async function getInquiryStatistics(): Promise<InquiryStatistics> {
+  const inquiries = inquiryStore.getAll();
+  return getStatsSummary(inquiries);
 }
