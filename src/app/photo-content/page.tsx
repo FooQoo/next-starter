@@ -109,7 +109,7 @@ export default function PhotoContentListPage() {
           </h1>
           <p className="text-solid-gray-700 mt-1">写真の一覧と管理</p>
         </div>
-        <Link href="/inquiry/photo-content/new">
+        <Link href="/photo-content/new">
           <Button size="md" variant="solid-fill">
             新規登録
           </Button>
@@ -229,7 +229,7 @@ export default function PhotoContentListPage() {
               {currentPhotos.map((photo) => (
                 <Link
                   key={photo.id}
-                  href={`/inquiry/photo-content/${photo.id}`}
+                  href={`/photo-content/${photo.id}`}
                   className="group"
                 >
                   <div className="border border-solid-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">

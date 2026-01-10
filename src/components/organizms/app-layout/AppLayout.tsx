@@ -70,7 +70,6 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
       else if (path === 'settings') label = '設定';
       else if (path === 'help') label = 'ヘルプ';
       else if (path === 'new') label = '新規作成';
-      else if (path === 'design-system-demo') label = 'デザインシステム';
       else if (path === 'story') label = 'ストーリー';
       else if (!isNaN(Number(path))) label = `詳細 (${path})`;
 
@@ -196,9 +195,7 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
                       <UtilityLink href="/">トップページ</UtilityLink>
                     </li>
                     <li>
-                      <UtilityLink href="/inquiry/help">
-                        使い方ガイド
-                      </UtilityLink>
+                      <UtilityLink href="/help">使い方ガイド</UtilityLink>
                     </li>
                   </ul>
                 </div>

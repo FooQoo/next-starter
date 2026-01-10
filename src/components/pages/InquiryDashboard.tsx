@@ -30,7 +30,7 @@ import {
   getInquiries,
   searchInquiries,
   filterInquiriesByStatus,
-} from './actions';
+} from '@/app/actions';
 import type { Inquiry, InquiryStatus } from '@/types/inquiry';
 
 export default function InquiryDashboard() {
@@ -166,7 +166,7 @@ export default function InquiryDashboard() {
           <h1 className="text-3xl font-bold text-sea-900">ダッシュボード</h1>
           <p className="text-solid-gray-700 mt-1">問い合わせの一覧と管理</p>
         </div>
-        <Link href="/inquiry/new">
+        <Link href="/new">
           <Button size="md" variant="solid-fill">
             新規作成
           </Button>
@@ -257,7 +257,7 @@ export default function InquiryDashboard() {
                   key={inquiry.id}
                   className="border border-solid-gray-200 rounded-lg p-5 hover:bg-solid-gray-50 transition-colors"
                 >
-                  <Link href={`/inquiry/${inquiry.id}`}>
+                  <Link href={`/${inquiry.id}`}>
                     <div className="space-y-3">
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                         <div className="flex-1">

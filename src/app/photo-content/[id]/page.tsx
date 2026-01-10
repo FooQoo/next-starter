@@ -65,7 +65,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
             tags: data.tags?.join(', ') || '',
           });
         } else {
-          router.push('/inquiry/photo-content');
+          router.push('/photo-content');
         }
       } catch (error) {
         console.error('データの取得に失敗しました:', error);
@@ -122,7 +122,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
     setIsDeleting(true);
     try {
       await deletePhoto(id);
-      router.push('/inquiry/photo-content');
+      router.push('/photo-content');
     } catch (error) {
       console.error('削除に失敗しました:', error);
       alert('削除に失敗しました');
@@ -144,7 +144,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
     return (
       <div className="text-center py-8">
         <p className="text-solid-gray-600">写真が見つかりませんでした</p>
-        <Link href="/inquiry/photo-content">
+        <Link href="/photo-content">
           <Button size="md" className="mt-4">
             一覧に戻る
           </Button>
@@ -173,7 +173,7 @@ export default function PhotoDetailPage({ params }: PageProps) {
               <Button
                 size="md"
                 variant="outline"
-                onClick={() => router.push('/inquiry/photo-content')}
+                onClick={() => router.push('/photo-content')}
               >
                 一覧に戻る
               </Button>

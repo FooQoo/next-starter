@@ -73,7 +73,7 @@ export default function NewInquiryPage() {
       });
 
       const inquiry = await createInquiry(formDataObj);
-      router.push(`/inquiry/${inquiry.id}`);
+      router.push(`/${inquiry.id}`);
     } catch (error) {
       console.error('作成に失敗しました:', error);
       setErrors({ submit: '作成に失敗しました。もう一度お試しください。' });
@@ -94,7 +94,7 @@ export default function NewInquiryPage() {
             問い合わせ情報を入力してください
           </p>
         </div>
-        <Link href="/inquiry">
+        <Link href="/">
           <Button size="md" variant="outline">
             一覧に戻る
           </Button>
@@ -363,7 +363,7 @@ export default function NewInquiryPage() {
 
         {/* 送信ボタン */}
         <div className="flex justify-end gap-4">
-          <Link href="/inquiry">
+          <Link href="/">
             <Button size="md" variant="outline" type="button">
               キャンセル
             </Button>

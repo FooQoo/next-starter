@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  faHome,
   faChartLine,
   faImage,
   faPalette,
@@ -14,12 +13,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SidebarNavItem } from './SidebarNavItem';
 
 const navLinks = [
-  { href: '/', label: 'ホーム', icon: faHome },
-  { href: '/inquiry', label: 'ダッシュボード', icon: faChartLine },
-  { href: '/inquiry/photo-content', label: '写真管理', icon: faImage },
-  { href: '/design-system-demo', label: 'デザインシステム', icon: faPalette },
-  { href: '/inquiry/settings', label: '設定', icon: faCog },
-  { href: '/inquiry/help', label: 'ヘルプ', icon: faQuestionCircle },
+  { href: '/', label: 'ダッシュボード', icon: faChartLine },
+  { href: '/photo-content', label: '写真管理', icon: faImage },
+  { href: '/settings', label: '設定', icon: faCog },
+  { href: '/help', label: 'ヘルプ', icon: faQuestionCircle },
 ];
 
 interface SidebarProps {

@@ -54,7 +54,7 @@ export async function createPhoto(formData: FormData): Promise<PhotoContent> {
   }
 
   const photo = photoStore.create(data);
-  revalidatePath('/inquiry/photo-content');
+  revalidatePath('/photo-content');
   return photo;
 }
 
@@ -81,13 +81,13 @@ export async function updatePhoto(
       .map((t) => t.trim());
 
   const photo = photoStore.update(id, data);
-  revalidatePath('/inquiry/photo-content');
-  revalidatePath(`/inquiry/photo-content/${id}`);
+  revalidatePath('/photo-content');
+  revalidatePath(`/photo-content/${id}`);
   return photo;
 }
 
 export async function deletePhoto(id: string): Promise<boolean> {
   const result = photoStore.delete(id);
-  revalidatePath('/inquiry/photo-content');
+  revalidatePath('/photo-content');
   return result;
 }

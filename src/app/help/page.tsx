@@ -140,10 +140,7 @@ export default function HelpPage() {
               <p>
                 デフォルトでは1ページあたり10件の問い合わせが表示されます。
                 表示件数を変更したい場合は、
-                <Link
-                  href="/inquiry/settings"
-                  className="text-blue-600 underline"
-                >
+                <Link href="/settings" className="text-blue-600 underline">
                   設定ページ
                 </Link>
                 から変更できます。

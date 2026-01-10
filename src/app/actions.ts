@@ -62,7 +62,7 @@ export async function createInquiry(formData: FormData): Promise<Inquiry> {
   }
 
   const inquiry = inquiryStore.create(data);
-  revalidatePath('/inquiry');
+  revalidatePath('/');
   return inquiry;
 }
 
@@ -93,13 +93,13 @@ export async function updateInquiry(
     data.attachments = formData.getAll('attachments') as string[];
 
   const inquiry = inquiryStore.update(id, data);
-  revalidatePath('/inquiry');
-  revalidatePath(`/inquiry/${id}`);
+  revalidatePath('/');
+  revalidatePath(`/${id}`);
   return inquiry;
 }
 
 export async function deleteInquiry(id: string): Promise<boolean> {
   const result = inquiryStore.delete(id);
-  revalidatePath('/inquiry');
+  revalidatePath('/');
   return result;
 }

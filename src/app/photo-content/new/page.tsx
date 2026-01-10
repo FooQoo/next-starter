@@ -96,7 +96,7 @@ export default function NewPhotoPage() {
       formDataObj.append('tags', formData.tags);
 
       const photo = await createPhoto(formDataObj);
-      router.push(`/inquiry/photo-content/${photo.id}`);
+      router.push(`/photo-content/${photo.id}`);
     } catch (error) {
       console.error('登録に失敗しました:', error);
       setErrors({ submit: '登録に失敗しました。もう一度お試しください。' });
@@ -114,7 +114,7 @@ export default function NewPhotoPage() {
             写真と情報を入力してください
           </p>
         </div>
-        <Link href="/inquiry/photo-content">
+        <Link href="/photo-content">
           <Button size="md" variant="outline">
             一覧に戻る
           </Button>
@@ -302,7 +302,7 @@ export default function NewPhotoPage() {
         <Divider />
 
         <div className="flex justify-end gap-4">
-          <Link href="/inquiry/photo-content">
+          <Link href="/photo-content">
             <Button size="md" variant="outline" type="button">
               キャンセル
             </Button>
