@@ -13,7 +13,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       children,
       className,
       isError,
-      blockSize = 'lg',
+      blockSize = 'md',
       onKeyDown,
       onMouseDown,
       ...rest
