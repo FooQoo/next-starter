@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   faChartLine,
   faImage,
-  faPalette,
   faCog,
   faQuestionCircle,
   faTimes,
@@ -28,7 +27,14 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
     <>
       {/* デスクトップサイドバー */}
-      <aside className="hidden lg:flex flex-col w-60 bg-white border-r border-solid-gray-200 flex-shrink-0">
+      <aside className="hidden lg:flex flex-col w-60 bg-white border-r border-solid-gray-200 flex-shrink-0 sticky top-0 h-screen overflow-y-auto">
+        {/* サイドバーヘッダー */}
+        <div className="h-16 px-4 flex items-center">
+          <h1 className="text-lg font-bold text-sea-900">
+            問い合わせ管理システム
+          </h1>
+        </div>
+
         <nav className="flex-1 py-4">
           <ul className="space-y-1">
             {navLinks.map((link) => (

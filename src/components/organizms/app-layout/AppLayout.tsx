@@ -87,74 +87,69 @@ export const AppLayout = ({ children }: AppLayoutProps) => {
   const breadcrumbs = getBreadcrumbs();
 
   return (
-    <div className="min-h-screen flex flex-col bg-solid-gray-50">
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-solid-gray-200 sticky top-0 z-30">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* ロゴ・タイトル */}
-            <div className="flex items-center gap-4">
-              <HamburgerMenuButton
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden"
-                aria-label="メニューを開く"
-              />
-              <Link href="/" className="flex items-center">
-                <h1 className="text-xl font-bold text-sea-900">
-                  問い合わせ管理システム
-                </h1>
-              </Link>
-            </div>
+    <div className="min-h-screen flex bg-solid-gray-50">
+      {/* サイドバー */}
+      <Sidebar
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
 
-            {/* ユーティリティリンク */}
-            <div className="flex items-center gap-4">
-              <LanguageSelector ref={languageSelectorRef}>
-                <LanguageSelectorButton
-                  aria-label="言語を選択"
-                  aria-expanded={isLanguageMenuOpen}
-                  onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                  className="flex items-center gap-1.5 pr-2"
-                >
-                  <FontAwesomeIcon icon={faGlobe} className="w-4 h-4" />
-                  <span className="text-sm">Language</span>
-                </LanguageSelectorButton>
-                {isLanguageMenuOpen && (
-                  <LanguageSelectorMenu className="absolute top-full right-0 mt-1 z-50">
-                    <LanguageSelectorMenuItem
-                      onClick={() => {
-                        setCurrentLanguage('ja');
-                        setIsLanguageMenuOpen(false);
-                      }}
-                    >
-                      {currentLanguage === 'ja' ? '✓ ' : ''}日本語
-                    </LanguageSelectorMenuItem>
-                    <LanguageSelectorMenuItem
-                      onClick={() => {
-                        setCurrentLanguage('en');
-                        setIsLanguageMenuOpen(false);
-                      }}
-                    >
-                      {currentLanguage === 'en' ? '✓ ' : ''}English
-                    </LanguageSelectorMenuItem>
-                  </LanguageSelectorMenu>
-                )}
-              </LanguageSelector>
-              <UtilityLink href="/" className="hidden sm:block">
-                ログアウト
-              </UtilityLink>
+      {/* メインコンテンツエリア */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* ヘッダー */}
+        <header className="bg-white border-b border-solid-gray-200 sticky top-0 z-30">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* モバイルメニューボタン */}
+              <div className="flex items-center gap-4">
+                <HamburgerMenuButton
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden"
+                  aria-label="メニューを開く"
+                />
+              </div>
+
+              {/* ユーティリティリンク */}
+              <div className="flex items-center gap-4 ml-auto">
+                <LanguageSelector ref={languageSelectorRef}>
+                  <LanguageSelectorButton
+                    aria-label="言語を選択"
+                    aria-expanded={isLanguageMenuOpen}
+                    onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                    className="flex items-center gap-1.5 pr-2"
+                  >
+                    <FontAwesomeIcon icon={faGlobe} className="w-4 h-4" />
+                    <span className="text-sm">Language</span>
+                  </LanguageSelectorButton>
+                  {isLanguageMenuOpen && (
+                    <LanguageSelectorMenu className="absolute top-full right-0 mt-1 z-50">
+                      <LanguageSelectorMenuItem
+                        onClick={() => {
+                          setCurrentLanguage('ja');
+                          setIsLanguageMenuOpen(false);
+                        }}
+                      >
+                        {currentLanguage === 'ja' ? '✓ ' : ''}日本語
+                      </LanguageSelectorMenuItem>
+                      <LanguageSelectorMenuItem
+                        onClick={() => {
+                          setCurrentLanguage('en');
+                          setIsLanguageMenuOpen(false);
+                        }}
+                      >
+                        {currentLanguage === 'en' ? '✓ ' : ''}English
+                      </LanguageSelectorMenuItem>
+                    </LanguageSelectorMenu>
+                  )}
+                </LanguageSelector>
+                <UtilityLink href="/" className="hidden sm:block">
+                  ログアウト
+                </UtilityLink>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div className="flex flex-1">
-        {/* サイドバー */}
-        <Sidebar
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-        />
-
-        {/* メインコンテンツエリア */}
         <div className="flex-1 flex flex-col min-w-0">
           {/* パンくずナビゲーション */}
           <div className="bg-white border-b border-solid-gray-200">
