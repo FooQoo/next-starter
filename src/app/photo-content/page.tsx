@@ -118,36 +118,21 @@ export default function PhotoContentListPage() {
 
       <Divider />
 
-      {/* 検索・フィルターセクション */}
+      {/* 検索セクション */}
       <div className="bg-white p-6 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-xl font-semibold text-sea-900 mb-4">
-          検索・フィルター
-        </h2>
+        <h2 className="text-xl font-semibold text-sea-900 mb-4">検索</h2>
         <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* 検索ボックス */}
-            <div>
-              <Label htmlFor="search">キーワード検索</Label>
-              <Input
-                id="search"
-                type="text"
-                placeholder="タイトル、説明、タグで検索"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && applyFilters()}
-                blockSize="md"
-              />
-            </div>
-
-            {/* カテゴリフィルター */}
-            <div>
-              <Label htmlFor="category-filter">カテゴリ</Label>
+          {/* 1段目: カテゴリ + キーワード検索 + 検索ボタン */}
+          <div>
+            <Label className="mb-2 block">検索対象</Label>
+            <div className="flex gap-3 items-end">
               <Select
                 id="category-filter"
                 value={categoryFilter}
                 onChange={(e) =>
                   setCategoryFilter(e.target.value as PhotoCategory | 'all')
                 }
+                className="w-40"
               >
                 <option value="all">すべて</option>
                 <option value="event">イベント</option>
@@ -155,51 +140,58 @@ export default function PhotoContentListPage() {
                 <option value="document">書類</option>
                 <option value="other">その他</option>
               </Select>
+              <Input
+                id="search"
+                type="text"
+                placeholder="サイト内検索"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && applyFilters()}
+                blockSize="md"
+                className="flex-1"
+              />
+              <Button size="md" variant="solid-fill" onClick={applyFilters}>
+                検索
+              </Button>
             </div>
+          </div>
 
-            {/* 開始日 */}
-            <div>
-              <Label htmlFor="start-date">撮影日（開始）</Label>
+          {/* 2段目: 撮影日(開始) + 撮影日(終了) + クリアボタン */}
+          <div>
+            <Label className="mb-2 block">撮影日</Label>
+            <div className="flex gap-3 items-end">
               <Input
                 id="start-date"
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
                 blockSize="md"
+                className="w-40"
               />
-            </div>
-
-            {/* 終了日 */}
-            <div>
-              <Label htmlFor="end-date">撮影日（終了）</Label>
+              <span className="pb-3 text-solid-gray-600">〜</span>
               <Input
                 id="end-date"
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 blockSize="md"
+                className="w-40"
               />
+              <Button
+                size="md"
+                variant="outline"
+                onClick={() => {
+                  setSearchQuery('');
+                  setCategoryFilter('all');
+                  setStartDate('');
+                  setEndDate('');
+                  setFilteredPhotos(photos);
+                  setCurrentPage(1);
+                }}
+              >
+                クリア
+              </Button>
             </div>
-          </div>
-
-          <div className="flex justify-end gap-2">
-            <Button
-              size="md"
-              variant="outline"
-              onClick={() => {
-                setSearchQuery('');
-                setCategoryFilter('all');
-                setStartDate('');
-                setEndDate('');
-                setFilteredPhotos(photos);
-                setCurrentPage(1);
-              }}
-            >
-              クリア
-            </Button>
-            <Button size="md" variant="solid-fill" onClick={applyFilters}>
-              検索
-            </Button>
           </div>
         </div>
       </div>

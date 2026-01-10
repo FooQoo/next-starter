@@ -177,11 +177,9 @@ export default function InquiryDashboard() {
 
       <Divider />
 
-      {/* 検索・フィルターセクション */}
+      {/* 検索セクション */}
       <div className="bg-white p-8 rounded-lg shadow-sm border border-solid-gray-200">
-        <h2 className="text-xl font-semibold text-sea-900 mb-6">
-          検索・フィルター
-        </h2>
+        <h2 className="text-xl font-semibold text-sea-900 mb-6">検索</h2>
         <div className="space-y-6">
           <SupportText className="mb-4">
             検索結果は検索フォームの下に表示されます。
