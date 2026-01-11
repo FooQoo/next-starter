@@ -12,7 +12,7 @@ import {
   Label,
   Input,
   Select,
-} from '@/components/atoms/digital-go-jp';
+} from '@/components/ui';
 
 export default function SettingsPage() {
   const [notificationSettings, setNotificationSettings] = useState({

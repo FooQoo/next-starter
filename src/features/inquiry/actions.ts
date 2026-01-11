@@ -1,7 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { inquiryStore } from '@/lib/stores/inquiry-store';
+import { inquiryStore } from './store';
 import type {
   Inquiry,
   InquiryStatus,
@@ -9,9 +9,9 @@ import type {
   InquiryPriority,
   CreateInquiryInput,
   UpdateInquiryInput,
-} from '@/types/inquiry';
-import type { InquiryStatistics } from '@/types/inquiry-statistics';
-import { getStatsSummary } from '@/lib/utils/inquiry-statistics';
+  InquiryStatistics,
+} from './types';
+import { getStatsSummary } from './utils';
 
 export async function getInquiries(): Promise<Inquiry[]> {
   return inquiryStore.getAll();

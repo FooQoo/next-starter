@@ -1,13 +1,13 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { photoStore } from '@/lib/stores/photo-store';
+import { photoStore } from './store';
 import type {
   PhotoContent,
   PhotoCategory,
   CreatePhotoContentInput,
   UpdatePhotoContentInput,
-} from '@/types/photo-content';
+} from './types';
 
 export async function getPhotos(): Promise<PhotoContent[]> {
   return photoStore.getAll();

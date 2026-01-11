@@ -1,11 +1,11 @@
-import type { Inquiry } from '@/types/inquiry';
 import type {
+  Inquiry,
   StatusCount,
   PriorityCount,
   CategoryCount,
   TimeSeriesDataPoint,
   InquiryStatistics,
-} from '@/types/inquiry-statistics';
+} from './types';
 
 export function getStatusCounts(inquiries: Inquiry[]): StatusCount {
   const counts = {

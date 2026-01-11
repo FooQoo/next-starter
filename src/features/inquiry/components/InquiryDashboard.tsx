@@ -16,22 +16,17 @@ import {
   AccordionContent,
   SupportText,
   Ul,
-} from '@/components/atoms/digital-go-jp';
+} from '@/components/ui';
 import {
   Pagination,
   PaginationFirst,
   PaginationPrev,
   PaginationNext,
   PaginationLast,
-  PaginationItem,
   PaginationCurrent,
-} from '@/components/atoms/digital-go-jp/Pagination';
-import {
-  getInquiries,
-  searchInquiries,
-  filterInquiriesByStatus,
-} from '@/app/actions';
-import type { Inquiry, InquiryStatus } from '@/types/inquiry';
+} from '@/components/ui/Pagination';
+import { getInquiries, searchInquiries } from '@/features/inquiry/actions';
+import type { Inquiry, InquiryStatus } from '@/features/inquiry/types';
 
 export default function InquiryDashboard() {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);

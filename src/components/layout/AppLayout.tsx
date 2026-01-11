@@ -16,8 +16,8 @@ import {
   LanguageSelectorMenu,
   LanguageSelectorMenuItem,
   UtilityLink,
-} from '@/components/atoms/digital-go-jp';
-import { Sidebar } from '@/components/organizms/sidebar';
+} from '@/components/ui';
+import { Sidebar } from './Sidebar';
 
 interface AppLayoutProps {
   children: ReactNode;

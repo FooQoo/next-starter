@@ -3,7 +3,7 @@ import type {
   InquiryStatus,
   CreateInquiryInput,
   UpdateInquiryInput,
-} from '@/types/inquiry';
+} from './types';
 
 class InquiryStore {
   private inquiries: Map<string, Inquiry> = new Map();

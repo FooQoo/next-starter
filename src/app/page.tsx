@@ -1,4 +1,4 @@
-import StatisticsDashboard from '@/components/pages/StatisticsDashboard';
+import { StatisticsDashboard } from '@/features/dashboard';
 
 export default function Home() {
   return <StatisticsDashboard />;

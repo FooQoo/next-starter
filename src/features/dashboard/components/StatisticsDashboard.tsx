@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/atoms/digital-go-jp';
-import StatCard from '@/components/molecules/StatCard';
-import BarChart from '@/components/molecules/BarChart';
-import TrendChart from '@/components/molecules/TrendChart';
-import type { InquiryStatistics } from '@/types/inquiry-statistics';
-import { getInquiryStatistics } from '@/app/actions';
+import { Button } from '@/components/ui';
+import StatCard from './StatCard';
+import BarChart from './BarChart';
+import TrendChart from './TrendChart';
+import type { InquiryStatistics } from '@/features/inquiry';
+import { getInquiryStatistics } from '@/features/inquiry';
 
 export default function StatisticsDashboard() {
   const [statistics, setStatistics] = useState<InquiryStatistics | null>(null);
