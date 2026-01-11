@@ -15,9 +15,12 @@ import {
   Legend,
   SupportText,
   Divider,
-} from '@/components/atoms/digital-go-jp';
-import { createInquiry } from '@/app/actions';
-import type { InquiryCategory, InquiryPriority } from '@/types/inquiry';
+} from '@/components/ui';
+import { createInquiry } from '@/features/inquiry/actions';
+import type {
+  InquiryCategory,
+  InquiryPriority,
+} from '@/features/inquiry/types';
 
 export default function NewInquiryPage() {
   const router = useRouter();

@@ -14,10 +14,10 @@ import {
   Checkbox,
   ErrorText,
   Divider,
-} from '@/components/atoms/digital-go-jp';
-import { Dialog, DialogBody } from '@/components/atoms/digital-go-jp/Dialog';
-import { getPhoto, updatePhoto, deletePhoto } from '../actions';
-import type { PhotoContent, PhotoCategory } from '@/types/photo-content';
+} from '@/components/ui';
+import { Dialog, DialogBody } from '@/components/ui/Dialog';
+import { getPhoto, updatePhoto, deletePhoto } from '@/features/photo-content';
+import type { PhotoContent, PhotoCategory } from '@/features/photo-content';
 
 interface PageProps {
   params: Promise<{ id: string }>;

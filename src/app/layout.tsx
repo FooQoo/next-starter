@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Providers } from './providers';
-import { AppLayout } from '@/components/organizms/app-layout';
+import { AppLayout } from '@/components/layout';
 
 export const metadata: Metadata = {
   title: '問い合わせ管理システム',

@@ -3,7 +3,7 @@ import type {
   PhotoCategory,
   CreatePhotoContentInput,
   UpdatePhotoContentInput,
-} from '@/types/photo-content';
+} from './types';
 
 class PhotoStore {
   private photos: Map<string, PhotoContent> = new Map();

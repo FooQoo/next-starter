@@ -1,4 +1,4 @@
-import type { TimeSeriesDataPoint } from '@/types/inquiry-statistics';
+import type { TimeSeriesDataPoint } from '@/features/inquiry';
 
 interface TrendChartProps {
   data: TimeSeriesDataPoint[];

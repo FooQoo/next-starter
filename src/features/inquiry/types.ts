@@ -1,3 +1,4 @@
+// Inquiry types
 export type InquiryStatus = 'pending' | 'in-progress' | 'completed';
 export type InquiryPriority = 'high' | 'medium' | 'low';
 export type InquiryCategory =
@@ -52,4 +53,41 @@ export interface UpdateInquiryInput {
   dueDate?: Date;
   completedAt?: Date;
   attachments?: string[];
+}
+
+// Statistics types
+export interface StatusCount {
+  pending: number;
+  'in-progress': number;
+  completed: number;
+  total: number;
+}
+
+export interface PriorityCount {
+  high: number;
+  medium: number;
+  low: number;
+  total: number;
+}
+
+export interface CategoryCount {
+  general: number;
+  technical: number;
+  billing: number;
+  complaint: number;
+  other: number;
+  total: number;
+}
+
+export interface TimeSeriesDataPoint {
+  date: string;
+  count: number;
+}
+
+export interface InquiryStatistics {
+  statusCount: StatusCount;
+  priorityCount: PriorityCount;
+  categoryCount: CategoryCount;
+  timeSeriesData: TimeSeriesDataPoint[];
+  lastUpdated: Date;
 }

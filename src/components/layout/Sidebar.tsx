@@ -29,7 +29,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
     <>
       {/* デスクトップサイドバー */}
-      <aside className="hidden lg:flex flex-col w-60 bg-white border-r border-solid-gray-200 flex-shrink-0 sticky top-0 h-screen overflow-y-auto">
+      <aside className="hidden lg:flex flex-col w-60 bg-white border-r border-solid-gray-200 shrink-0 sticky top-0 h-screen overflow-y-auto">
         {/* サイドバーヘッダー */}
         <div className="h-16 px-4 flex items-center">
           <h1 className="text-lg font-bold text-sea-900">

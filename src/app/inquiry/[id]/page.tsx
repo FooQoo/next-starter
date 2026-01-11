@@ -21,15 +21,19 @@ import {
   DisclosureSummary,
   Blockquote,
   Divider,
-} from '@/components/atoms/digital-go-jp';
-import { Dialog, DialogBody } from '@/components/atoms/digital-go-jp/Dialog';
-import { getInquiry, updateInquiry, deleteInquiry } from '@/app/actions';
+} from '@/components/ui';
+import { Dialog, DialogBody } from '@/components/ui/Dialog';
+import {
+  getInquiry,
+  updateInquiry,
+  deleteInquiry,
+} from '@/features/inquiry/actions';
 import type {
   Inquiry,
   InquiryStatus,
   InquiryCategory,
   InquiryPriority,
-} from '@/types/inquiry';
+} from '@/features/inquiry/types';
 
 interface PageProps {
   params: Promise<{ id: string }>;

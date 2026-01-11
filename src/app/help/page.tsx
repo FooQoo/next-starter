@@ -11,7 +11,7 @@ import {
   Divider,
   Ol,
   Ul,
-} from '@/components/atoms/digital-go-jp';
+} from '@/components/ui';
 
 export default function HelpPage() {
   return (

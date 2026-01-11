@@ -10,9 +10,9 @@ import {
   Select,
   StatusBadge,
   Divider,
-} from '@/components/atoms/digital-go-jp';
-import { getPhotos, searchPhotos } from './actions';
-import type { PhotoContent, PhotoCategory } from '@/types/photo-content';
+} from '@/components/ui';
+import { getPhotos } from '@/features/photo-content';
+import type { PhotoContent, PhotoCategory } from '@/features/photo-content';
 
 export default function PhotoContentListPage() {
   const [photos, setPhotos] = useState<PhotoContent[]>([]);

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Divider, SupportText } from '@/components/atoms/digital-go-jp';
+import { Divider, SupportText } from '@/components/ui';
 
 interface StatCardProps {
   title: string;

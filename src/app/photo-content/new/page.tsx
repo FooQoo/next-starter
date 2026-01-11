@@ -15,9 +15,9 @@ import {
   ErrorText,
   SupportText,
   Divider,
-} from '@/components/atoms/digital-go-jp';
-import { createPhoto } from '../actions';
-import type { PhotoCategory } from '@/types/photo-content';
+} from '@/components/ui';
+import { createPhoto } from '@/features/photo-content';
+import type { PhotoCategory } from '@/features/photo-content';
 
 export default function NewPhotoPage() {
   const router = useRouter();
